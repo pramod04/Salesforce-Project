@@ -1,0 +1,25 @@
+<aura:component controller="Account_Coutroller" implements="flexipage:availableForAllPageTypes">
+
+<aura:attribute name="accounts" type="List" />
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+<table>    
+    <tr>
+        <td>
+            <b>Name</b>
+        </td>
+        <td>
+            <b>Created Date</b>
+        </td>
+       
+    </tr>
+    
+    <aura:iteration items="{!v.accounts}" var="acc">
+      <tr>
+        <td> {!acc.Name}  </td>
+        <td> {!acc.CreatedDate}  </td>
+     </tr>
+
+    </aura:iteration>
+    
+</table>
+</aura:component>
