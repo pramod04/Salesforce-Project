@@ -57,7 +57,13 @@ update acctsToRollup;
 </table>
 </aura:component>
 
+
+
+
+
 /****apex controller****/
+
+
 public class Account_Coutroller{
     
     @AuraEnabled
@@ -70,14 +76,21 @@ public class Account_Coutroller{
 
 
 /******controller********/
-({ doInit : function(component, event, helper) { helper.helperMethod(component, event, helper);
+
+
+({ 
+
+doInit : function(component, event, helper) { helper.helperMethod(component, event, helper);
 
 }
 })
 
 /****helper***/
 
-({ helperMethod : function(component, event, helper) {
+
+({
+
+helperMethod : function(component, event, helper) {
 
     var action = component.get('c.getAccount');
     var self = this;
@@ -93,26 +106,29 @@ public class Account_Coutroller{
 
 /***lightning app****/
 
-<aura:application > <c:Recent_Account_Comp /> </aura:application>
+
+<aura:application > 
+     <c:Recent_Account_Comp /> 
+</aura:application>
 
 /------Make a basic http callout and print the result using system.debug-----/
 
 public class BaiscCallouts { 
-public static HttpResponse makeGetCallout() {
-     Http http = new Http(); 
-     HttpRequest request = new HttpRequest(); 
-     request.setEndpoint('https://postman-echo.com/get?foo1=bar1&foo2=bar2'); 
-     request.setMethod('GET'); HttpResponse response = http.send(request);
+     public static HttpResponse makeGetCallout() {
+          Http http = new Http(); 
+          HttpRequest request = new HttpRequest(); 
+          request.setEndpoint('https://postman-echo.com/get?foo1=bar1&foo2=bar2'); 
+          request.setMethod('GET'); HttpResponse response = http.send(request);
 
-    // If the request is successful, parse the JSON response.        
-    if (response.getStatusCode() == 200) {
-        // Deserializes the JSON string into collections of primitive data types.
-        system.debug('***response.getBody()*****'+response.getBody());
-        Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-       
-    }
-    return response;
-}
+         // If the request is successful, parse the JSON response.        
+         if (response.getStatusCode() == 200) {
+             // Deserializes the JSON string into collections of primitive data types.
+             system.debug('***response.getBody()*****'+response.getBody());
+             Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+
+         }
+         return response;
+     }
 }
 
 /***response debug****/
