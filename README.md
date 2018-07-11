@@ -29,9 +29,9 @@ for (AggregateResult ar : [SELECT AccountId AcctId, Count(id) ContactCount FROM 
 update acctsToRollup;
 }
 
-/--Build a basic lightning component that can query a list of 10 most recently created accounts and display it using a lightning app. ---/
+/--Build a basic lightning component that can query a list of 10 most recently created accounts and display it using a lightning app. -/
 
-/***component***/
+/************ component ************/
 
 <aura:component controller="Account_Coutroller" implements="flexipage:availableForAllPageTypes">
 
@@ -47,6 +47,7 @@ update acctsToRollup;
         </td>
        
     </tr>
+    
     <aura:iteration items="{!v.accounts}" var="acc">
       <tr>
         <td> {!acc.Name}  </td>
@@ -54,6 +55,7 @@ update acctsToRollup;
      </tr>
 
     </aura:iteration>
+    
 </table>
 </aura:component>
 
