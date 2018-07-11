@@ -57,8 +57,19 @@ update acctsToRollup;
 </table>
 </aura:component>
 
-//controller
+//apex controller
+public class Account_Coutroller{
+    
+    @AuraEnabled
+    public static list<account> getAccount(){
+        list<account> accList=[SELECT id , name,createddate From account order by createddate desc limit 10];
+        return accList;
+    }
 
+}
+
+
+//controller
 ({ doInit : function(component, event, helper) { helper.helperMethod(component, event, helper);
 
 }
