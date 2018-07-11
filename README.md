@@ -31,7 +31,7 @@ update acctsToRollup;
 
 /--Build a basic lightning component that can query a list of 10 most recently created accounts and display it using a lightning app. ---/
 
-//component
+/***component***/
 
 <aura:component controller="Account_Coutroller" implements="flexipage:availableForAllPageTypes">
 
@@ -57,7 +57,7 @@ update acctsToRollup;
 </table>
 </aura:component>
 
-//apex controller
+/****apex controller****/
 public class Account_Coutroller{
     
     @AuraEnabled
@@ -69,13 +69,13 @@ public class Account_Coutroller{
 }
 
 
-//controller
+/******controller********/
 ({ doInit : function(component, event, helper) { helper.helperMethod(component, event, helper);
 
 }
 })
 
-//helper
+/****helper***/
 
 ({ helperMethod : function(component, event, helper) {
 
@@ -91,11 +91,18 @@ public class Account_Coutroller{
 }
 })
 
-//lightning app <aura:application > <c:Recent_Account_Comp /> </aura:application>
+/***lightning app****/
+
+<aura:application > <c:Recent_Account_Comp /> </aura:application>
 
 /------Make a basic http callout and print the result using system.debug-----/
 
-public class BaiscCallouts { public static HttpResponse makeGetCallout() { Http http = new Http(); HttpRequest request = new HttpRequest(); request.setEndpoint('https://postman-echo.com/get?foo1=bar1&foo2=bar2'); request.setMethod('GET'); HttpResponse response = http.send(request);
+public class BaiscCallouts { 
+public static HttpResponse makeGetCallout() {
+     Http http = new Http(); 
+     HttpRequest request = new HttpRequest(); 
+     request.setEndpoint('https://postman-echo.com/get?foo1=bar1&foo2=bar2'); 
+     request.setMethod('GET'); HttpResponse response = http.send(request);
 
     // If the request is successful, parse the JSON response.        
     if (response.getStatusCode() == 200) {
@@ -108,7 +115,7 @@ public class BaiscCallouts { public static HttpResponse makeGetCallout() { Http 
 }
 }
 
-//response debug
+/***response debug****/
 
 {"args":{"foo1":"bar1","foo2":"bar2"},"headers":{"host":"postman-echo.com", "accept":"text/html, image/gif, image/jpeg, *; q=.2, /; 
 q=.2","cache-control":"no-cache", "pragma":"no-cache","user-agent":"SFDC-Callout/43.0","x-forwarded-port":"443",
